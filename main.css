@@ -8,5 +8,10 @@
     padding-top: 20px;
     text-align: center;
 }
+path {
+    stroke: white;
+    stroke-width: 0.25px;
+    fill: grey;
+  }
 
 /* Include any custom CSS styling here! */

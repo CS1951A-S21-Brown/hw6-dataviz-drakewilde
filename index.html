@@ -1,28 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <link rel="shortcut icon" href="#"> <!-- To remove an error?-->
         <meta charset="utf-8">
         <title>Assignment 6 &laquo; Data Visualization Dashboard&raquo;</title>
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="main.css"/>
         <!--Feel free to add more CSS files as needed-->
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+
     </head>
 <body>
     <div class="header">
         <h3>Assignment 6 &laquo; Data Visualization Dashboard &raquo;</h3>
+        <h3>Video Game Sales Analytics</h3>
     </div>
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
         <div class="col-lg-6">
-            <div id="graph1"></div>
-            <div id="graph2"></div><br/>
+            <hr>
+            <h3>Graph 1: Top 10 Global Video Game Sales</h3>
+            <div id="barplot"></div>
+            <hr>
+            <hr>            
+            <h3>Graph 2: Top Genre per Region</h3>
+            <div id="graph2"></div>
+            <hr>
         </div>
         <div class="col-lg-6">
+            <hr>
+            <h3>Graph 3: Top 3 Publishers per Genre</h3>
+            <button type="button" class="btn btn-info" onclick="update(data1)">Puzzle</button>
+            <button type="button" class="btn btn-info" onclick="update(data2)">Strategy</button>
+            <button type="button" class="btn btn-info" onclick="update(data3)">Fighting</button>
+            <button type="button" class="btn btn-info" onclick="update(data4)">Simulation</button>
+            <button type="button" class="btn btn-info" onclick="update(data5)">Platformer</button>
+            <button type="button" class="btn btn-info" onclick="update(data6)">Racing</button>
+            <button type="button" class="btn btn-info" onclick="update(data7)">Adventure</button>
+            <button type="button" class="btn btn-info" onclick="update(data8)">Shooter</button>
+            <button type="button" class="btn btn-info" onclick="update(data9)">Role-Playing</button>
+            <button type="button" class="btn btn-info" onclick="update(data10)">Misc</button>
+            <button type="button" class="btn btn-info" onclick="update(data11)">Sports</button>
+            <button type="button" class="btn btn-info" onclick="update(data12)">Action</button>
             <div id="graph3"></div>
+            <hr>
+            <hr>
+            <h3>Written Questions</h3>
+            <p>1. On my dashboard, Graph 1 shows the top 10 video games of all time by their Global Sale
+            Value. Graph 2 is a world map with 3 regions: NA, EU and JP. In each region, there is a 
+            hovering tooltip that indicates the region, most popular genre in that region and the aggregated
+            sales figure of that genre in the region. Graph 3 is an interactive bar graph that shows not 
+            only the top publisher in a given genre, but the top 3 publishers in a given genre. Click on
+            a button to change which genre to view.</p>
+            <p>2. D3 was helpful with the scope of availablity of data visualization. With some research,
+                it was intuitive to create different dynamic bargraphs integrated with html buttons as well
+                as map and tooltip overlays without using a built-in html tooltip. D3 was also useful with dynamic
+                timing of durations, color specturms and easy integration with html. D3 also helped with
+                the global map portion of the assignment with many different avaiable tools to choose from. 
+                The overall integration of all of this with html was the main reason D3 was very useful in 
+                creating data visualizations
+            </p>
+            <p>3. D3 in my expereince was a challenge primarily because of javascript and integration
+                into html. Towards the end of the assignment, as I became more accustomed to javascript
+                and html, it became clear that D3 was not a bad tool at all. However, usage of html to
+                display data visualizations directly may not have been the most fluid way to manage and process
+                data and display it especially when many other libraries in python exist and would make the 
+                transition between these workflows more fluid. For example, in the case of processing data with
+                pandas before using D3, there may have been a more seamless way to create visualizations. D3
+                would also not be the best tool for creating visualizations because of the relatively small documentation
+                and user envrironment available online. Compared to other tools, it was very difficult to find
+                many relavent sources of documentation, especially for v5, making it difficult to determine differences 
+                between this and other versions like v4. These issues I listed would only be exasperated the more
+                complex the visualization task is, making other alternatives more appealing.
+            </p>
+            <p>4. My dashboard is relatively accesible to those that are colorblind with the high contrast
+                of my data visualizations with the background white color. To support assistive technology, 
+                my tooling structure is not complex and takes advantage of large bold buttons and hovering tooltips.
+                My data visualization would be least accesible towards those with blindness that rely on a screen-reader
+                and sound to access the data. Those with color blindness or low-blindness may find my data visualizations 
+                accesible because of the contrasting colors and relative large buttons used to manipulate the data.
+                In response to the suggestion on "A Comprehensive Guide to Accesible Data Visualization", they suggest
+                to aviod tooltips which I have implemented. This may be a good idea to assist those that are visually 
+                impaired and make the nature of the data more intuitive.
+            </p>
+            <p>5. Throughout my design process, I immediately took note to the map portion of the assignment which
+                provided extra credit. I also noticed that a tool-tip was required so I decided to combine these two 
+                on graph 2. Now, I understand that graph 2 may not be necessarily the most accesible and I may have been 
+                able to remedy this by using a legend instead. I also could have made the font-size larger as a form of
+                accesibility that would have been quick to implement. Time - restraints are the main factors that kept
+                me from acheiving these goals, however, I believe that my dynamic and static bar graphs as well as my map 
+                are pretty accesible given the constrains I was given in this assignment such as including a tooltip.
+            </p>
+            <hr>
         </div>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
     <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="main_2.js"></script>
+    <script type="text/javascript" src="main_3.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+    <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+
 </body>
 </html>
